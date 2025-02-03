@@ -19,11 +19,11 @@ function Signup() {
       const userData = await authService.createAccount(data);
       if (userData) {
         const userData = await authService.getCurrentUser();
-        if (userData) dispatch(login(userData));
+        if(userData) dispatch(login(userData));
         navigate("/");
       }
     } catch (error) {
-      setError(error.value);
+      setError(error.message);
     }
   };
 
@@ -51,7 +51,7 @@ function Signup() {
         <form onSubmit={handleSubmit(create)}>
           <div className='space-y-5'>
             <Input
-              label="Full Nname: "
+              label="Full Name: "
               placeholder="Enter your full name"
               {...register("name", {
                 required: true,
@@ -72,13 +72,13 @@ function Signup() {
             />
             <Input
               label="Password: "
+              type="password"
               placeholder="Enter your password"
-              {...register("passowrd", {
+              {...register("password", {
                 required: true,
               })}
             />
             <Button type="submit" className="w-full">
-              {" "}
               Create Account
             </Button>
           </div>

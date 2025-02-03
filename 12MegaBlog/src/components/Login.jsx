@@ -70,7 +70,7 @@ function Login() {
               type="password"
               placeholder="Enter your password"
               {...register("password", {
-                required: "true",
+                required: true,
               })}
             />
             <Button type="submit" className="w-full">
